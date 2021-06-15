@@ -1,0 +1,24 @@
+.graphh-container{
+display:"flex";
+ width: 50%;
+}
+.dates{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10%;
+}
+.dates button{
+    border: none;
+    background-color: white;
+    margin: 5%;
+}
+.select1, .select2{
+    padding: 10px;
+    margin: 2% 0 0 20%;
+}
+
+@media(max-width:600px){
+    .graphh-container{
+        width: 100%;
+    }
+}
