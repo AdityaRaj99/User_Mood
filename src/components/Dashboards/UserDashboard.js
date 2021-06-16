@@ -28,49 +28,51 @@ function UserDashboard() {
     function showData(day){
        setLabel(['12 A.M.','2 A.M.','4 A.M.','6 A.M.','8 A.M.','10 A.M.','12 P.M.','2 P.M.','4 P.M.'
        ,'6 P.M.','8 P.M.','10 P.M.'])
+
         setDaywiseData(datas[month+week][day] .data)
 
         chart()
-        console.log(month+week)
     }
 
-    useEffect(()=>{
-        chart()
-    },[])
+    // useEffect(()=>{
+    //     chart()
+    // },[])
 
     function Average(list){
         var total = 0;
         for(var i = 0; i < list.length; i++) {
             total += Number(list[i]);
         }
-        console.log(total)
         return (total / list.length);
-        
     }
-
     useEffect(()=>{
         setLabel(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'])
         setDaywiseData([  Average(datas[month+week]["Monday"].data),Average(datas[month+week]["Tuesday"].data),Average(datas[month+week]["Wednesday"].data),
         Average(datas[month+week]["Thursday"].data),Average(datas[month+week]["Friday"].data),Average(datas[month+week]["Saturday"].data),Average(datas[month+week]["Sunday"].data)  ])
+
         chart()
     },[week])
     
-    return (
+    return (<>
+            
             <div className="graphh-container">
-                {/* <div style={{display:"grid", marginTop:"auto",marginBottom:"auto",transform:"rotate(-90deg)"}}>hasgwid</div> */}
-                <Line data={chartData} options={{
+            <div className="mood">Happiness Level 😄</div>
+            <div> 
+                overall
+            </div>
+                <Line style={{marginLeft:"6%"}} data={chartData} options={{
                     responsive: true,
                     title:{text:'THICCNESS SCALE',display:true},
                     scales:{
-                        yAxes:[
-
-                            {label:"happiness Index",
+                        xAxes:[
+                            {
+                                label:"happiness Index",
                                 gridLines:{
                                     display:false
                                 }
                             }
                         ],
-                        xAxes:[
+                        yAxes:[
                             {
                                 gridLines:{
                                     display:false
@@ -78,8 +80,7 @@ function UserDashboard() {
                             }
                         ]
                     }
-                }}/>
-
+                }}/>   
                 <div className="selectDay">
                     <select onChange={(e)=>{setMonth(e.target.value)}} className="select1">
                         <option  value="1">Month-1</option>
@@ -107,7 +108,7 @@ function UserDashboard() {
                     <button onClick={()=>showData("Sunday")}>Sunday</button>
                 </div>
             </div>
-        
+        </>
     )
 }
 

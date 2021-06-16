@@ -1,11 +1,10 @@
 .graphh-container{
 display:"flex";
- width: 50%;
+ width: 55%;
 }
 .dates{
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10%;
 }
 .dates button{
     border: none;
@@ -14,7 +13,13 @@ display:"flex";
 }
 .select1, .select2{
     padding: 10px;
-    margin: 2% 0 0 20%;
+    margin: 5% 0 0 20%;
+}
+.mood{
+    transform:rotate(-90deg);
+    margin-left: -36%;
+    margin-right: 56%;
+    font-size: 16px;
 }
 
 @media(max-width:600px){
